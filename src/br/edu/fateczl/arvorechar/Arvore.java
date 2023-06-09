@@ -24,7 +24,7 @@ public class Arvore {
 				insertLeaf(no, raizSubArvore.direita);
 			}
 		}
-	}
+	} 
 	
 	public void insert(char dado) {
 		No no = new No();

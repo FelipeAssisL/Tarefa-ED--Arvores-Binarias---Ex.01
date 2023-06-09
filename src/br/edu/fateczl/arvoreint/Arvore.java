@@ -4,7 +4,7 @@ import br.edu.fateczl.arvorechar.No;
 
 public class Arvore {
 
-	No raiz;
+	No raiz; 
 
 	public Arvore() {
 		raiz = null;
@@ -38,7 +38,7 @@ public class Arvore {
 	
 	private No nodeSearch(No raizSubArvore, int valor) throws Exception {
 		if (raiz == null) {
-			throw new Exception("Árvore Vazia");
+			throw new Exception("ï¿½rvore Vazia");
 		} else if (raizSubArvore.dado > valor) {
 			return nodeSearch(raizSubArvore.esquerda, valor);
 		} else if (raizSubArvore.dado < valor) {
@@ -50,7 +50,7 @@ public class Arvore {
 	
 	private int nodeLevel(No raizSubArvore, int valor) throws Exception {
 		if (raiz == null) {
-			throw new Exception("Árvore Vazia");
+			throw new Exception("ï¿½rvore Vazia");
 		} else if (raizSubArvore.dado > valor) {
 			return 1 + nodeLevel(raizSubArvore.esquerda, valor);
 		} else if (raizSubArvore.dado < valor) {
@@ -64,16 +64,16 @@ public class Arvore {
 		try {
 			No no = nodeSearch(raiz, valor);
 			int level = nodeLevel(raiz, valor);
-			System.out.println("Valor "+no.dado+" nível " + level);
+			System.out.println("Valor "+no.dado+" nï¿½vel " + level);
 		} catch (Exception e) {
-			throw new Exception("Valor não encontrado");
+			throw new Exception("Valor nï¿½o encontrado");
 		}
 	}
 	
 	private No removeChild(No raizSubArvore, int valor) throws Exception {
 		//Buscar o int recursivamente
 		if (raiz == null) {
-			throw new Exception("Árvore vazia");
+			throw new Exception("ï¿½rvore vazia");
 		} else if (raizSubArvore.dado > valor) {
 			raizSubArvore.esquerda = removeChild(raizSubArvore.esquerda, valor);
 		} else if (raizSubArvore.dado < valor) {
@@ -81,16 +81,16 @@ public class Arvore {
 		} else { // achou o int
 			if (raizSubArvore.esquerda == null && raizSubArvore.direita == null) { // folha
 				raizSubArvore = null;
-			} else if (raizSubArvore.esquerda == null) { // int com filho à direita
+			} else if (raizSubArvore.esquerda == null) { // int com filho ï¿½ direita
 				raizSubArvore = raizSubArvore.direita;
-			} else if (raizSubArvore.direita == null) { // int com filho à esquerda
+			} else if (raizSubArvore.direita == null) { // int com filho ï¿½ esquerda
 				raizSubArvore = raizSubArvore.esquerda;
 			} else {
 				No no = raizSubArvore.esquerda;
 				while (no.direita != null) {
 					no = no.direita;
 				}
-				raizSubArvore.dado = no.dado; // buscar para trocar o int de posição
+				raizSubArvore.dado = no.dado; // buscar para trocar o int de posiï¿½ï¿½o
 				no.dado = valor;
 				raizSubArvore.esquerda = removeChild(raizSubArvore.esquerda, valor);
 			}
@@ -102,13 +102,13 @@ public class Arvore {
 		try {
 			removeChild(raiz, valor);
 		} catch (Exception e) {
-			throw new Exception("Valor não existente");
+			throw new Exception("Valor nï¿½o existente");
 		}
 	}
 	
 	private void prefix(No raizSubArvore) throws Exception {
 		if (raiz == null) {
-			throw new Exception("Árvore vazia");
+			throw new Exception("ï¿½rvore vazia");
 		} else {
 			System.out.print(raizSubArvore.dado + " ");
 			if (raizSubArvore.esquerda != null) {
@@ -122,7 +122,7 @@ public class Arvore {
 	
 	private void infix(No raizSubArvore) throws Exception {
 		if (raiz == null) {
-			throw new Exception("Árvore vazia");
+			throw new Exception("ï¿½rvore vazia");
 		} else {
 			if (raizSubArvore.esquerda != null) {
 				infix(raizSubArvore.esquerda);
@@ -138,7 +138,7 @@ public class Arvore {
 	
 	private void postfix(No raizSubArvore) throws Exception {
 		if (raiz == null) {
-			throw new Exception("Árvore vazia");
+			throw new Exception("ï¿½rvore vazia");
 		} else {
 			if (raizSubArvore.esquerda != null) {
 				postfix(raizSubArvore.esquerda);
